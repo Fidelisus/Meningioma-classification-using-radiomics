@@ -2,7 +2,7 @@ import pandas as pd
 import seaborn as sns
 from matplotlib import pyplot as plt
 
-from src.random_forest.training.remove_correlated_features import remove_correlated_features
+from src.radiomic_features.random_forest.training.remove_correlated_features import remove_correlated_features
 
 
 def make_plots(full_dataframe):

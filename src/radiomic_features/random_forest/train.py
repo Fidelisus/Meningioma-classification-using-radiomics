@@ -7,8 +7,8 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import roc_auc_score, accuracy_score, precision_score, recall_score
 from sklearn.model_selection import train_test_split
 
-from src.random_forest.training.remove_correlated_features import remove_correlated_features
-from src.random_forest.analysis.visualize_random_forest import make_plots
+from src.radiomic_features.random_forest.training.remove_correlated_features import remove_correlated_features
+from src.radiomic_features.random_forest.analysis.visualize_random_forest import make_plots
 
 TEST_SIZE = 0.2
 
@@ -76,7 +76,7 @@ def evaluate(rf: RandomForestClassifier, test_dataframe: pd.DataFrame, x_datafra
 
 
 def main(do_split: bool = False):
-    base_dir = Path("..", "..", "data")
+    base_dir = Path("../..", "..", "data")
     radiomics_file_name = "radiomics_features_2022_12_10_11_20_08.csv"
     radiomics_train_file_name = f"train_{radiomics_file_name}"
     radiomics_test_file_name = f"test_{radiomics_file_name}"
