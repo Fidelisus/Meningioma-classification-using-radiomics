@@ -41,7 +41,7 @@ def remove_correlated_features(df, corr_threshold=0.8):
     n_features = df.shape[1]
 
     # Compute correlation matrix
-    corr = df.corr(method='pearson')
+    corr = df.corr(method="pearson")
     corr = corr.abs()
 
     # Keep only correlation values in the upper traingle matrix
@@ -50,7 +50,9 @@ def remove_correlated_features(df, corr_threshold=0.8):
     corr = corr.where(triu)
 
     # Select columns which will be dropped from dataframe
-    cols_to_drop = [column for column in corr.columns if any(corr[column] > corr_threshold)]
+    cols_to_drop = [
+        column for column in corr.columns if any(corr[column] > corr_threshold)
+    ]
 
     n_cols_to_drop = len(cols_to_drop)
     p_cols_to_drop = 100 * (float(n_cols_to_drop) / float(n_features))
